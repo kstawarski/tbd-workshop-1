@@ -77,7 +77,7 @@ create a sample usage profiles and add it to the Infracost task in CI/CD pipelin
 
    ![img.png](doc/figures/workshop1_task11_infracost.png)
 
-11.  Create a BigQuery dataset and an external table using SQL
+11. Create a BigQuery dataset and an external table using SQL
 
     ```sql
     CREATE SCHEMA IF NOT EXISTS demo OPTIONS(location = 'europe-west1');
@@ -93,9 +93,10 @@ create a sample usage profiles and add it to the Infracost task in CI/CD pipelin
 
     ```
 
-    ***place the code and output here***
+   ![img.png](doc/figures/workshop1_task12_bq.png)
 
     ***why does ORC not require a table schema?***
+    Since ORC (Optimized Row Columnar) already contains the information on the schema of the data, it is not necessary to pass redundant information during table creation.
 
 
 12. Start an interactive session from Vertex AI workbench:
