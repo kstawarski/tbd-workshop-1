@@ -20,6 +20,12 @@ variable "machine_type" {
   description = "Machine type to use for both worker and master nodes"
 }
 
+variable "workers_count" {
+  type        = number
+  description = "Count of worker nodes in cluster"
+  default     = 2
+}
+
 variable "image_version" {
   type    = string
   default = "2.1.27-ubuntu20"

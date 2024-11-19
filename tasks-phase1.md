@@ -21,12 +21,17 @@ IMPORTANT ❗ ❗ ❗ Please remember to destroy all the resources after each wo
 
     2. Create PR from this branch to **YOUR** master and merge it to make new release.
 
-    ***place the screenshot from GA after succesfull application of release***
+    ![img.png](doc/figures/workshop1_task6_release.png)
 
 
 8. Analyze terraform code. Play with terraform plan, terraform graph to investigate different modules.
 
-    ***describe one selected module and put the output of terraform graph for this module here***
+    Selected module: jupyter_docker_image
+
+    This module is responsible for building a Jupyter docker image and if the SHA1 sum of the `resources` directory change, it uploads the image to registry.
+   
+   ![img.png](doc/figures/workshop1_task7_jupyter_module.png)
+   
 
 9. Reach YARN UI
 
@@ -48,7 +53,7 @@ create a sample usage profiles and add it to the Infracost task in CI/CD pipelin
 
    ***place the screenshot from infracost output here***
 
-11. Create a BigQuery dataset and an external table using SQL
+1.  Create a BigQuery dataset and an external table using SQL
 
     ***place the code and output here***
 
