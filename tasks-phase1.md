@@ -79,14 +79,28 @@ create a sample usage profiles and add it to the Infracost task in CI/CD pipelin
 
 11.  Create a BigQuery dataset and an external table using SQL
 
-    ***place the code and output here***
+    ```sql
+    CREATE SCHEMA IF NOT EXISTS demo OPTIONS(location = 'europe-west1');
+
+    CREATE OR REPLACE EXTERNAL TABLE demo.shakespeare
+      OPTIONS (
+
+      format = 'ORC',
+      uris = ['gs://tbd-2024z-318729-data/data/shakespeare/*.orc']);
+
+
+    SELECT * FROM demo.shakespeare ORDER BY sum_word_count DESC LIMIT 5;
+
+    ```
+***place the code and output here***
 
     ***why does ORC not require a table schema?***
 
 
 12. Start an interactive session from Vertex AI workbench:
 
-    ***place the screenshot of notebook here***
+   ![img.png](doc/figures/workshop1_task13_workbench.png)
+
 
 13. Find and correct the error in spark-job.py
 
