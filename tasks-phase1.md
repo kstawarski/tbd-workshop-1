@@ -53,7 +53,27 @@ IMPORTANT ❗ ❗ ❗ Please remember to destroy all the resources after each wo
 For all the resources of type: `google_artifact_registry`, `google_storage_bucket`, `google_service_networking_connection`
 create a sample usage profiles and add it to the Infracost task in CI/CD pipeline. Usage file [example](https://github.com/infracost/infracost/blob/master/infracost-usage-example.yml)
 
-   ***place the expected consumption you entered here***
+    ```yaml
+    version: 0.1
+    usage:
+      google_artifact_registry.registry:
+        storage_gb: 100
+
+      google_storage_bucket.tbd_code_bucket:
+        storage_gb: 10
+        monthly_class_a_operations: 1000
+        monthly_class_b_operations: 5000
+        monthly_egress_data_gb: 15
+
+      google_storage_bucket.tbd_data_bucket:
+        storage_gb: 200
+        monthly_class_a_operations: 2000
+        monthly_class_b_operations: 3000
+        monthly_egress_data_gb: 100
+
+      google_service_networking_connection.private_vpc_connection:
+        monthly_data_processed_gb: 250
+    ```
 
    ***place the screenshot from infracost output here***
 
