@@ -29,13 +29,16 @@ IMPORTANT ❗ ❗ ❗ Please remember to destroy all the resources after each wo
     Selected module: jupyter_docker_image
 
     This module is responsible for building a Jupyter docker image and if the SHA1 sum of the `resources` directory change, it uploads the image to registry.
-   
+
    ![img.png](doc/figures/workshop1_task7_jupyter_module.png)
-   
+
 
 9. Reach YARN UI
 
-   ***place the command you used for setting up the tunnel, the port and the screenshot of YARN UI here***
+    Command used:
+    `gcloud compute ssh tbd-cluster-m --project=tbd-2024z-318729 --zone=europe-west1-d --tunnel-through-iap -- -L 8088:localhost:8088`
+   ![img.png](doc/figures/workshop1_task9_yarn.png)
+
 
 10. Draw an architecture diagram (e.g. in draw.io) that includes:
     1. VPC topology with service assignment to subnets
