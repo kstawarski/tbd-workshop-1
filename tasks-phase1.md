@@ -46,7 +46,8 @@ IMPORTANT ❗ ❗ ❗ Please remember to destroy all the resources after each wo
     3. List of buckets for disposal
     4. Description of network communication (ports, why it is necessary to specify the host for the driver) of Apache Spark running from Vertex AI Workbech
 
-    ***place your diagram here***
+   ![img.png](doc/figures/workshop1_task10_arch.png)
+    Since the Driver manages the cluster and handles the communication with the clients that submit jobs, it is necessary to set it explicity so the other nodes will know where to check for jobs to run and where to report the status of a finished job.
 
 11. Create a new PR and add costs by entering the expected consumption into Infracost
 For all the resources of type: `google_artifact_registry`, `google_storage_bucket`, `google_service_networking_connection`
@@ -56,7 +57,7 @@ create a sample usage profiles and add it to the Infracost task in CI/CD pipelin
 
    ***place the screenshot from infracost output here***
 
-1.  Create a BigQuery dataset and an external table using SQL
+11.  Create a BigQuery dataset and an external table using SQL
 
     ***place the code and output here***
 
