@@ -118,15 +118,22 @@ create a sample usage profiles and add it to the Infracost task in CI/CD pipelin
 
     1. Add support for arbitrary machine types and worker nodes for a Dataproc cluster and JupyterLab instance
 
-    ***place the link to the modified file and inserted terraform code***
+        - https://github.com/kstawarski/tbd-workshop-1/blob/master/modules/dataproc/main.tf#L36
+        - https://github.com/kstawarski/tbd-workshop-1/blob/master/modules/dataproc/main.tf#L45
+        - https://github.com/kstawarski/tbd-workshop-1/blob/master/modules/dataproc/variables.tf#L17-L21
+        - https://github.com/kstawarski/tbd-workshop-1/blob/master/modules/vertex-ai-workbench/main.tf#L54
+        - https://github.com/kstawarski/tbd-workshop-1/blob/master/modules/vertex-ai-workbench/variables.tf#L37-L41
+        - https://github.com/kstawarski/tbd-workshop-1/blob/master/modules/dataproc/main.tf#L44
+        - https://github.com/kstawarski/tbd-workshop-1/blob/master/modules/dataproc/variables.tf#L23-L27
 
     3. Add support for preemptible/spot instances in a Dataproc cluster
 
-    ***place the link to the modified file and inserted terraform code***
+        - https://github.com/kstawarski/tbd-workshop-1/blob/master/modules/dataproc/main.tf#L52-L59
 
     3. Perform additional hardening of Jupyterlab environment, i.e. disable sudo access and enable secure boot
 
-    ***place the link to the modified file and inserted terraform code***
+        - https://github.com/kstawarski/tbd-workshop-1/blob/master/modules/vertex-ai-workbench/main.tf#L70
+        - https://github.com/kstawarski/tbd-workshop-1/blob/master/modules/vertex-ai-workbench/main.tf#L73-L75
 
     4. (Optional) Get access to Apache Spark WebUI
 
