@@ -92,7 +92,8 @@ create a sample usage profiles and add it to the Infracost task in CI/CD pipelin
     SELECT * FROM demo.shakespeare ORDER BY sum_word_count DESC LIMIT 5;
 
     ```
-***place the code and output here***
+
+    ***place the code and output here***
 
     ***why does ORC not require a table schema?***
 
@@ -104,7 +105,13 @@ create a sample usage profiles and add it to the Infracost task in CI/CD pipelin
 
 13. Find and correct the error in spark-job.py
 
-    ***describe the cause and how to find the error***
+    After navigating to Airflow to check what happend to the failed DAG, upon inspecting its code, we found a line with an incorrect value with a comment to change it.
+    This is how it was updated:
+
+    ```
+    DATA_BUCKET = "gs://tbd-2024z-318729-data/data/shakespeare/"
+    ```
+
 
 14. Additional tasks using Terraform:
 
