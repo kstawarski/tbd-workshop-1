@@ -98,7 +98,11 @@ the running instance of your Vertex AI Workbench
 
 8. Analyze tpcdi.py. What happened in the loading stage?
 
-   ***Your answer***
+   First, the script created a Spark session.
+   Then, data generated in the previous step, was loaded into Spark DataFrames (one per file) and given the appropriate schema.
+   Afterwards that data was uploaded to our gcs bucket to prepare it for processing in Dataproc.
+
+   ![img.png](doc/figures/workshop2a_task8_bucket.png)
 
 9. Using SparkSQL answer: how many table were created in each layer?
 
