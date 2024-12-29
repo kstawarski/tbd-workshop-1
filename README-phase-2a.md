@@ -77,7 +77,24 @@ the running instance of your Vertex AI Workbench
 
 7. Explore files created by generator and describe them, including format, content, total size.
 
-   ***Files desccription***
+   The following files were generated:
+
+   ![img.png](doc/figures/workshop2a_task7_all_files.png)
+
+   Generated files are grouped into 3 batches. They have the following sizes:
+
+   ![img.png](doc/figures/workshop2a_task7_file_sizes.png)
+
+   The first batch contains transaction data grouped per quarter in pairs:
+   the first file (without extension) contains the actual data delimited by tabulation,
+   while the one with the \_audit.csv suffix contains the column names for the data.
+
+   There are also files describing and containing smaller amounts of data (in .csv and .txt format),
+   that are also not grouped by time chunks, but by their topic.
+
+   The second and third batches are similar in that they contain much less data than the first batch.
+   They lack the transaction data present in the first batch.
+   Otherwise, they contain the same files.
 
 8. Analyze tpcdi.py. What happened in the loading stage?
 
