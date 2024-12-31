@@ -77,19 +77,65 @@ the running instance of your Vertex AI Workbench
 
 7. Explore files created by generator and describe them, including format, content, total size.
 
-   ***Files desccription***
+   The following files were generated:
+
+   ![img.png](doc/figures/workshop2a_task7_all_files.png)
+
+   Generated files are grouped into 3 batches. They have the following sizes:
+
+   ![img.png](doc/figures/workshop2a_task7_file_sizes.png)
+
+   The first batch contains transaction data grouped per quarter in pairs:
+   the first file (without extension) contains the actual data delimited by tabulation,
+   while the one with the \_audit.csv suffix contains the column names for the data.
+
+   There are also files describing and containing smaller amounts of data (in .csv and .txt format),
+   that are also not grouped by time chunks, but by their topic.
+
+   The second and third batches are similar in that they contain much less data than the first batch.
+   They lack the transaction data present in the first batch.
+   Otherwise, they contain the same files.
 
 8. Analyze tpcdi.py. What happened in the loading stage?
 
-   ***Your answer***
+   First, the script created a Spark session.
+   Then, data generated in the previous step, was loaded into Spark DataFrames (one per file) and given the appropriate schema.
+   Afterwards that data was uploaded to our gcs bucket to prepare it for processing in Dataproc.
+
+   ![img.png](doc/figures/workshop2a_task8_bucket.png)
 
 9. Using SparkSQL answer: how many table were created in each layer?
 
-   ***SparkSQL command and output***
+   ![img.png](doc/figures/workshop2a_task9_output.png)
 
 10. Add some 3 more [dbt tests](https://docs.getdbt.com/docs/build/tests) and explain what you are testing. ***Add new tests to your repository.***
 
-   ***Code and description of your tests***
+   I. Tests whether there are any duplicates in accounts.
+
+   ```
+   select
+       sk_account_id,
+       count(*) cnt
+   from {{ ref('dim_account') }}
+   group by sk_account_id
+   having cnt > 1
+   ```
+
+   II. Tests whether there are any transactions that were processed before they were placed.
+
+   ```
+   select *
+   from {{ ref('fact_watches') }}
+   where sk_date_placed > sk_date_removed
+   ```
+
+   III. Tests whether there are any transactions with their amount lower than 0.
+
+   ```
+   select *
+   from {{ source('brokerage', 'cash_transaction') }}
+   WHERE ct_amt < 0
+   ```
 
 11. In main.tf update
    ```
