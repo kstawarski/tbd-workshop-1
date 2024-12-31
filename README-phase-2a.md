@@ -110,7 +110,32 @@ the running instance of your Vertex AI Workbench
 
 10. Add some 3 more [dbt tests](https://docs.getdbt.com/docs/build/tests) and explain what you are testing. ***Add new tests to your repository.***
 
-   ***Code and description of your tests***
+   I. Tests whether there are any duplicates in accounts.
+
+   ```
+   select
+       sk_account_id,
+       count(*) cnt
+   from {{ ref('dim_account') }}
+   group by sk_account_id
+   having cnt > 1
+   ```
+
+   II. Tests whether there are any transactions that were processed before they were placed.
+
+   ```
+   select *
+   from {{ ref('fact_watches') }}
+   where sk_date_placed > sk_date_removed
+   ```
+
+   III. Tests whether there are any transactions with their amount lower than 0.
+
+   ```
+   select *
+   from {{ source('brokerage', 'cash_transaction') }}
+   WHERE ct_amt < 0
+   ```
 
 11. In main.tf update
    ```
