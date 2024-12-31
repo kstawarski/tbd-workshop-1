@@ -15,8 +15,12 @@ module "dataproc" {
 
 and subsititute "e2-standard-2" with "e2-standard-4".
 
-2. If needed request to increase cpu quotas (e.g. to 30 CPUs): 
+2. If needed request to increase cpu quotas (e.g. to 30 CPUs):
 https://console.cloud.google.com/apis/api/compute.googleapis.com/quotas?project=tbd-2023z-9918
+
+We requested the CPUs quota increase, but it was denied in the europe-west1 region.
+Then, we attempted to increase the quota in a different region and succeeded in the europe-central2 region.
+Therefore, we moved the infrastructure to that region from this point on.
 
 3. Using tbd-tpc-di notebook perform dbt run with different number of executors, i.e., 1, 2, and 5, by changing:
 ```
@@ -25,9 +29,9 @@ https://console.cloud.google.com/apis/api/compute.googleapis.com/quotas?project=
 
 in profiles.yml.
 
-4. In the notebook, collect console output from dbt run, then parse it and retrieve total execution time and execution times of processing each model. Save the results from each number of executors. 
+4. In the notebook, collect console output from dbt run, then parse it and retrieve total execution time and execution times of processing each model. Save the results from each number of executors.
 
 5. Analyze the performance and scalability of execution times of each model. Visualize and discucss the final results.
 
 
-   
+
