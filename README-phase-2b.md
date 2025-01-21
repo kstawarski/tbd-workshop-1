@@ -26,6 +26,7 @@ Therefore, we moved the infrastructure to that region from this point on.
 ```
  "spark.executor.instances": "2"
 ```
+Testy wykonaliśmy dla 1, 2 i 5 Sparkowych egzekutorów.
 
 in profiles.yml.
 
@@ -33,5 +34,13 @@ in profiles.yml.
 
 5. Analyze the performance and scalability of execution times of each model. Visualize and discucss the final results.
 
+W poniższej tabeli znajdują się czasy wykonania `dbt run` dla każdego modelu i liczby egzekutorów równej 1,2 albo 5. Ostatni wiersz tabeli zawiera sumaryczny czas wszystkich modeli dla każdej liczby egzekutorów. Sumaryczny czas jest przedstawiony także na wykresie.
 
+![img.png](doc/figures/workshop2b_task4_table.jpg)
+
+![img.png](doc/figures/workshop2b_task5_plot.svg)
+
+Można zauważyć, że wraz ze wzrostem liczby egzekutorów spada całkowity czas egzekucji modeli. Przy czym dodanie kolejnego egzekutora, poprawia wyniki bardziej, gdy początkowa liczba egzekutorów jest mniejsza. Przy zmianie 1-> 2 egzekutory zauważyliśmy zmniejszenie się czasu egzekucji wszystkich modeli o ponad połowę. Po zwiększeniu liczby egzekutorów 2 -> 5, oszczędność czasu była już znacznie mniejsza. 
+ 
+O ile sumaryczny czas dla wszystkich modeli był mniejszy po dodaniu dodatkowych egzekutorów, to nie dla każdego pojedynczego modelu zaobserwowaliśmy poprawę czasu. Modele, których czas egzekucji był najniższy (do kilku sekund), nie zawsze wraz z większą liczbą egzekutorów, uzyskiwały lepszy czas. Za to modele, których czas był najdłuższy (kilkaset sekund), odnotowywały dwu- trzykrotnie niższe czasy po zwiększeniu liczby egzekutorów.
 
